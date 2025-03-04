@@ -1,0 +1,3 @@
+/Users/buketalkan/Desktop/CS3891-03/assignment4-buket/build/CMakeFiles/godot-cpp.dir
+/Users/buketalkan/Desktop/CS3891-03/assignment4-buket/build/CMakeFiles/edit_cache.dir
+/Users/buketalkan/Desktop/CS3891-03/assignment4-buket/build/CMakeFiles/rebuild_cache.dir
