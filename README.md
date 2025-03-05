@@ -138,4 +138,35 @@ void main() {
 ![Shader3 screenshot](readme_images/Shader3_1.png)
 This confirms that the compute shader correctly doubled each element.
 # Custom Shaders (custom vertex shader, custom fragment shader, screen-reading shader)
+## Overview
+This example demonstrates **wave deformation** in the vertex stage, combined with **water reflection/refraction** in the fragment stage. The vertex shader displaces the plane using a noise-augmented sine wave, creating an animated ocean surface. The fragment shader applies a Fresnel highlight and samples the screen texture (screen-reading) to simulate reflections. A GDScript script lets users dynamically adjust parameters in real time.
+![CustomWater Screenshot1](readme_images/CustomShaders_1.png)  
+## How to Run
+1. **Open Project**: Launch Godot 4.x and import this project folder.
+2. **Open Scene**: In the `custom_shaders` folder, open the scene file (e.g., `water_animation.tscn`) containing the `MeshInstance3D` that uses the custom ShaderMaterial.
+3. **Play**: Press **Play** (or F5).
+4. **Use Arrow Keys**:  
+   - **Up/Down** arrows change the **wave height**.  
+   - **Left/Right** arrows modify the **water_color_strength** (reflection intensity).  
+   - Observe real-time changes in the water’s appearance.
+## What Happens
+1. **Vertex Displacement**  
+   - The plane’s vertices move according to a sine wave combined with a noise texture, creating rolling waves.  
+   - A finite-difference approach approximates the dynamic normals, ensuring accurate lighting on the displaced surface.
+2. **Screen-Reading Fragment**  
+   - The fragment shader reads from the **screen texture** (`hint_screen_texture`) to produce reflection and refraction effects.  
+   - A Fresnel factor adds realistic highlights at shallow angles, and a directional light provides basic shading.
+3. **Arrow Key Interactivity**  
+   - Pressing **Up** or **Down** increases/decreases the wave height in real time.  
+   - Pressing **Right** or **Left** intensifies or reduces the reflection color strength, making the water more or less mirror-like.
+4. **Extra Credit: Screen-Reading**  
+   - Because the fragment shader samples the screen texture, this setup implements a screen-reading shader.  
+   - This allows dynamic reflections of background objects, fulfilling the extra credit requirement.
+## Results
+- **Real-Time Changes**: Users can immediately see the waves get taller or shorter, and reflections become stronger or weaker, demonstrating interactive parameter updates via GDScript.  
+- **Performance**: Testing with Godot’s Debugger/Monitors shows stable 145 FPS, indicating minimal performance impact.  
+- **Screenshots**: Below are images showing the water surface at different parameter settings (wave height and reflection intensity).  
+![CustomWater Screenshot2](readme_images/CustomShaders_2.png)  
+![CustomWater Screenshot3](readme_images/CustomShaders_3.png)
 
+**HERE IS A DEMO LINK**: [link][https://youtu.be/80d95Q0Pxz4]
