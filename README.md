@@ -137,8 +137,5 @@ void main() {
 ## Results
 ![Shader3 screenshot](readme_images/Shader3_1.png)
 This confirms that the compute shader correctly doubled each element.
+# Custom Shaders (custom vertex shader, custom fragment shader, screen-reading shader)
 
-
-# Shader 4 (custom)
-
-# Shader 5 (custom)

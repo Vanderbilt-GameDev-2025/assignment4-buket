@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="assignment4"
-run/main_scene="res://shader3/shader3.tscn"
+run/main_scene="res://custom_shaders/water_animation.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
