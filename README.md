@@ -169,4 +169,4 @@ This example demonstrates **wave deformation** in the vertex stage, combined wit
 ![CustomWater Screenshot2](readme_images/CustomShaders_2.png)  
 ![CustomWater Screenshot3](readme_images/CustomShaders_3.png)
 
-**HERE IS A DEMO LINK**: [link][https://youtu.be/80d95Q0Pxz4]
+**HERE IS A DEMO LINK**: [link](https://youtu.be/80d95Q0Pxz4)
