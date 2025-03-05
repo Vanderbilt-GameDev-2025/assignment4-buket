@@ -30,7 +30,7 @@ void main() {
 3. The compute shader runs on the GPU, processing each element in parallel.
 4. The updated array is read back to confirm the multiplication was successful.
 ## Results
-![Shader3 screenshot](readme_images/Shader3_1.png)
+![Shader3 screenshot](assignment4-buket/readme_images/Shader3_1.png)
 This confirms that the compute shader correctly doubled each element.
 
 # Shader 4 (custom)
