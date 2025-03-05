@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://es47dqq2wxn3"]
+
+[ext_resource type="Shader" path="res://shader2/shader2.gdshader" id="1_va3dd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4e5ec"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a80vf"]
+noise = SubResource("FastNoiseLite_4e5ec")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8dw0g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_naua1"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_8dw0g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cosm1"]
+render_priority = 0
+shader = ExtResource("1_va3dd")
+shader_parameter/height_scale = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_a80vf")
+shader_parameter/normalmap = SubResource("NoiseTexture2D_naua1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tysb5"]
+material = SubResource("ShaderMaterial_cosm1")
+subdivide_width = 32
+subdivide_depth = 32
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_tysb5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 1.4, 1)
+fov = 30.9
+near = 0.03

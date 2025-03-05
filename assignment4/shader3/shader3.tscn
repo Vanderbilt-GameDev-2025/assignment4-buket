@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkbm7g761oa3u"]
+
+[ext_resource type="Shader" path="res://shader3/shader3.gdshader" id="1_aasal"]
+[ext_resource type="Script" path="res://shader3/shader_3.gd" id="2_pc0aq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_csl45"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xv7ga"]
+noise = SubResource("FastNoiseLite_csl45")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gfv8g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e4avt"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_gfv8g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhr33"]
+render_priority = 0
+shader = ExtResource("1_aasal")
+shader_parameter/height_scale = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_xv7ga")
+shader_parameter/normalmap = SubResource("NoiseTexture2D_e4avt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lpaly"]
+material = SubResource("ShaderMaterial_lhr33")
+subdivide_width = 32
+subdivide_depth = 32
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_lpaly")
+script = ExtResource("2_pc0aq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
